@@ -1,0 +1,61 @@
+
+
+
+
+	printf("\n---------------%s---------------\n\n", ft_memset(temp, '-', strlen(FCNAME)));
+	printf("\n%s\n", ProjectResult(TestResultCount));
+
+/*	strcpy(str, org);
+
+	printf("ft_bzero before:\n{\"%s\"}\n", str);
+	printf("return value:\n");
+	printf("--NO RETURN VALUE--\n");
+	printf("ft_bzero after:\n{\"%s\"}\n", str);
+	printf("ft_bzero after '(str + 19)':\n{\"%s\"}\n", str + 19);
+	printf("bzero after '(str + 20)':\n{\"%s\"}\n\n", str + 20);
+	printf("-------------------------------\n");
+
+	strcpy(str, org);*/
+
+/*	char org[50] = "Hello[zero this out] welcome to codam.";
+	char str[50] = "Hello[zero this out] welcome to codam.";
+	
+	//ft_memset.c
+	printf("\n\n\nft_memset.c\n-------------------------------\n\n");
+	printf("memset before:\n{\"%s\"}\n", str);
+	printf("return value after call:\n{\"%s\"}\n",memset(str + 5, '0', 15 * (sizeof(char))));
+	printf("memset after:\n{\"%s\"}\n\n", str);
+
+	strcpy(str, org);
+
+	printf("ft_memset before:\n{\"%s\"}\n", str);
+	printf("return value after call:\n{\"%s\"}\n",ft_memset(str + 5, '0', 15 * (sizeof(char))));
+	printf("ft_memset after:\n{\"%s\"}\n\n", str);
+	printf("-------------------------------\n");
+
+	strcpy(str, org);
+
+	//bzero.c
+	printf("\n\n\nft_bzero.c\n-------------------------------\n\n");
+	printf("bzero before:\n{\"%s\"}\n", str);
+	printf("return value:\n");
+	printf("--NO RETURN VALUE--\n");
+	bzero(str + 5, 15 * (sizeof(char)));
+	printf("bzero after:\n{\"%s\"}\n", str);
+	printf("bzero after '(str + 19)':\n{\"%s\"}\n", str + 19);
+	printf("bzero after '(str + 20)':\n{\"%s\"}\n\n", str + 20);
+
+	strcpy(str, org);
+
+	printf("ft_bzero before:\n{\"%s\"}\n", str);
+	printf("return value:\n");
+	printf("--NO RETURN VALUE--\n");
+	ft_bzero(str + 5, 15 * (sizeof(char)));
+	printf("ft_bzero after:\n{\"%s\"}\n", str);
+	printf("ft_bzero after '(str + 19)':\n{\"%s\"}\n", str + 19);
+	printf("bzero after '(str + 20)':\n{\"%s\"}\n\n", str + 20);
+	printf("-------------------------------\n");
+
+	strcpy(str, org);
+
+	//*/
