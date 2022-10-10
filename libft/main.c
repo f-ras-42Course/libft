@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/31 12:44:58 by fras          #+#    #+#                 */
-/*   Updated: 2022/09/26 14:53:34 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/10 16:35:45 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ int		main(int argc, char *argv[])
   ResetStringsNArrays(str1, str2, orgs, arr1, arr2, orga, _BOTH);
 	sleep(1);
   
-  /*#undef FCNAME
+ /* #undef FCNAME
 	#define FCNAME "ft_memccpy.c"
 	printf("\n\n%s\n-------------- %s --------------\n\n", FCNAME, FCNAME);
   memccpy(arr1, arr1 + 1, 111, sizeof(orga) - 1);
