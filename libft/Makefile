@@ -11,10 +11,22 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
+SRCS = ft_memcpy.c ft_memset.c 
 
-all: 
+
+$(NAME): $(SRC)
+	$(CC) $(CFLAGS)   -c 
+
+all: $(NAME)
+
 
 clean:
+	rm -f *.o
+
+fclean: clean
+	rm $(NAME)
+
+re:
