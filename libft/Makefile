@@ -1,4 +1,5 @@
 # **************************************************************************** #
+#
 #                                                                              #
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
@@ -6,9 +7,14 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/08 20:56:28 by fras          #+#    #+#                  #
-#    Updated: 2022/10/08 20:56:32 by fras          ########   odam.nl          #
+#    Updated: 2022/10/10 19:50:02 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-hello:
-	echo "Hello, World"
+NAME = libft
+CC = gcc
+CFLAGS = -Werror -Wextra -Wall
+
+all: 
+
+clean:
