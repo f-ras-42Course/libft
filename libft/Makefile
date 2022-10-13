@@ -14,23 +14,33 @@
 NAME = libft.a
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-SRCS= ft_memcpy.% ft_memset.% 
-CFILES = $(SRCS)c
-OBJECTS = $(SRCS)o
+SOURCES = ft_memcpy.c ft_memset.c ft_bzero.c
+OBJECTS = $(SOURCES:%.c=%.o)
 
 $(NAME): $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)
 
-$(OBJECTS): $(CFILES)
-	$(CC) $(CFLAGS) -c
-
-all: $(NAME)
-
+all: $(NAME) test
 
 clean:
 	rm -f *.o
 
 fclean: clean
 	rm $(NAME)
-
 re:
+
+
+# +-------------------+
+#       TEST PROG     |
+# +-------------------+
+
+testprog: testprog.c $(NAME)
+	$(CC) $(CFLAGS) $< -L. $(NAME) -o $@
+
+test: testprog
+	./$<
+
+tclean:
+	rm -f testprog
+
+ftclean: tclean fclean
