@@ -14,11 +14,15 @@
 NAME = libft.a
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-SRCS = ft_memcpy.c ft_memset.c 
+SRCS= ft_memcpy.% ft_memset.% 
+CFILES = $(SRCS)c
+OBJECTS = $(SRCS)o
 
+$(NAME): $(OBJECTS)
+	ar -rcs $(NAME) $(OBJECTS)
 
-$(NAME): $(SRC)
-	$(CC) $(CFLAGS)   -c 
+$(OBJECTS): $(CFILES)
+	$(CC) $(CFLAGS) -c
 
 all: $(NAME)
 
