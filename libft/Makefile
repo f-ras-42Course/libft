@@ -39,7 +39,7 @@ testprog: testprog.c $(NAME)
 	$(CC) $(CFLAGS) $< -L. $(NAME) -o $@
 
 test: testprog
-	./$<
+	./$< $(CANDIDATE)
 
 tclean:
 	rm -f testprog
