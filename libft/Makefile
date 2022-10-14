@@ -20,14 +20,15 @@ OBJECTS = $(SOURCES:%.c=%.o)
 $(NAME): $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)
 
-all: $(NAME) test
+all: $(NAME)
 
 clean:
 	rm -f *.o
 
 fclean: clean
 	rm $(NAME)
-re:
+
+re: fclean all
 
 
 # +-------------------+
@@ -44,3 +45,5 @@ tclean:
 	rm -f testprog
 
 ftclean: tclean fclean
+
+testre: ftclean test
