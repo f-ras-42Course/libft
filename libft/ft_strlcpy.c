@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
+/*   ft_strlcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/31 22:44:39 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/18 09:35:44 by fras          ########   odam.nl         */
+/*   Created: 2022/10/19 16:13:10 by fras          #+#    #+#                 */
+/*   Updated: 2022/10/21 15:27:28 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
-{
-	size_t			i;
-	unsigned char	*ptr;
+ size_t ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+ {
+	size_t  srcsize;
 
-	i = 0;
-	ptr = s;
-	while (i < n)
-		ptr[i++] = '\0';
-}
+	srcsize = ft_strlen(src);
+	if (srcsize + 1 < dstsize)
+		ft_memcpy(dst, src, srcsize + 1);
+	else if (dstsize != 0)
+	{
+		ft_memcpy(dst, src, dstsize - 1);
+		dst[dstsize- 1] = '\0';
+	}
+	return(srcsize);
+ }

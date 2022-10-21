@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
+/*   ft_memmove.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/31 22:44:39 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/18 09:35:44 by fras          ########   odam.nl         */
+/*   Created: 2022/10/18 10:24:35 by fras          #+#    #+#                 */
+/*   Updated: 2022/10/19 14:09:25 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	char		*ptr1;
+	const char	*ptr2;
 
-	i = 0;
-	ptr = s;
-	while (i < n)
-		ptr[i++] = '\0';
+	ptr1 = dest;
+	ptr2 = src;
+	if (dest == src)
+		return (dest);
+	if (dest < src)
+		while (n--)
+			*ptr1++ = *ptr2++;
+	else
+	{
+		while (n)
+		{
+			ptr1[n - 1] = ptr2[n - 1];
+			n--;
+		}
+	}
+	return (dest);
 }
