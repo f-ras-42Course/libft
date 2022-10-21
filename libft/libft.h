@@ -6,14 +6,14 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/31 18:56:39 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/21 15:38:19 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/21 17:35:02 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 #define LIBFT_H
 
-//#include <stdlib.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 //typedefs
@@ -31,5 +31,6 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize);
+ size_t ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize);
 
 #endif
