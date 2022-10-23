@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/31 18:56:39 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/21 21:16:24 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/24 01:04:00 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,15 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
+int   ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
+
+// Todo (official functions):
+
+// • strncmp
+// • memchr
+// • memcmp
+// • strnstr
+// • atoi
