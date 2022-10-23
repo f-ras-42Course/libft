@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strchr.c                                        :+:    :+:            */
+/*   ft_strncmp.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/21 21:05:55 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/23 19:43:30 by fras          ########   odam.nl         */
+/*   Created: 2022/10/23 19:46:12 by fras          #+#    #+#                 */
+/*   Updated: 2022/10/23 19:47:50 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+int	ft_strncmp(const char *s1, const char *s2)
 {
-	while (*s != c)
-		s++;
-	if (*s == c)
-		return (s);
-	else
-		return (NULL);
+	
 }
