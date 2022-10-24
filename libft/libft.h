@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/31 18:56:39 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/24 01:04:00 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/24 11:58:59 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int   ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 #endif
 
 // Todo (official functions):
 
-// • strncmp
 // • memchr
 // • memcmp
 // • strnstr

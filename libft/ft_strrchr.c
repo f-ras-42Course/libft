@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/23 18:06:34 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/24 00:27:40 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/24 12:33:42 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char *ptr;
+	const char	*ptr;
 
 	ptr = s;
 	s += ft_strlen(s);
