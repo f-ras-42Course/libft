@@ -14,19 +14,26 @@
 NAME = libft.a
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-SOURCES = ft_bzero.c ft_memset.c ft_memcpy.c ft_isalpha.c ft_isdigit.c \
-ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memmove.c ft_strlcpy.c \
-ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c \
-ft_memchr.c ft_memcmp.c ft_strnstr.c
+SOURCES = $(shell find . -type f -name "ft_*.c")
+# OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:%.c=%.o))
 OBJECTS = $(SOURCES:%.c=%.o)
+BUILDDIR = obj
+SRCDIR = .
 
 $(NAME): $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)
+
+# directories:
+# 	@mkdir -p $(BUILDDIR)
+
+# $(OBJECTS): $(SOURCES)
+# 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 all: $(NAME)
 
 clean:
 	rm -f *.o
+	rm -rf obj
 
 fclean: clean
 	rm $(NAME)
