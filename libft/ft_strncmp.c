@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/23 19:46:12 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/24 11:47:30 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/24 13:44:46 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (s1[i] - s2[i]);
 }
 
-	// if (s1[i] > s2[i])
-	//  return (1);
-	// if (s1[i] < s2[i])
-	//  return (-1);
-	// else
-	// 	return (0);
+	//	Other variant:
+	//
+	//	if (s1[i] > s2[i])
+	//  	return (1);
+	//	if (s1[i] < s2[i])
+	//  	return (-1);
+	//	else
+	// 		return (0);
