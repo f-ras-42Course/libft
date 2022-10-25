@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 17:18:33 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/25 19:09:58 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/25 20:10:52 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void *alloc;
-	
+	void	*alloc;
+
 	alloc = malloc(count * size);
 	if (alloc)
 		ft_bzero(alloc, count * size);
