@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/31 22:44:39 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/18 09:35:44 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/25 18:54:48 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	ft_bzero(void *s, size_t n)
 	i = 0;
 	ptr = s;
 	while (i < n)
-		ptr[i++] = '\0';
+		ptr[i++] = 0;
 }
