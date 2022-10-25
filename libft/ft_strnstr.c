@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 15:02:35 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/24 23:49:37 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/25 15:20:25 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			j++;
 			if (needle[j] == '\0')
 				return ((char *)haystack + i - j);
+			else if (haystack[i] == '\0')
+				return (NULL);
 		}
 		j = 0;
 		i++;
