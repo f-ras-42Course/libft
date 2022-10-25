@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/21 21:05:55 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/24 00:52:41 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/25 14:17:11 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c && *s)
+	while (*s != (char)c && *s)
 		s++;
-	if (*s == c)
+	if (*s == (char)c)
 		return ((char *)s);
-	else
-		return (NULL);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/23 18:06:34 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/24 12:33:42 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/25 14:28:27 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ char	*ft_strrchr(const char *s, int c)
 
 	ptr = s;
 	s += ft_strlen(s);
-	while (*s != c && s != ptr)
+	while (*s != (char)c && s != ptr)
 		s--;
-	if (*s == c)
+	if (*s == (char)c)
 		return ((char *)s);
-	else
-		return (NULL);
+	return (NULL);
 }
