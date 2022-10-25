@@ -60,3 +60,6 @@ testre: ftclean test
 
 speedtest: testprog
 	./$< SPEEDMODE
+
+leakscheck: testprog
+	leaks --atExit -- ./$< SPEEDMODE
