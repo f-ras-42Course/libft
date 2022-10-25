@@ -66,7 +66,6 @@ speedtest: testprog
 nbtest: testprog
 	./$< NOBONUS $(CANDIDATE)
 
-
 leakscheck: testprog
 	leaks --atExit -- ./$< SPEEDMODE
 
