@@ -53,6 +53,8 @@ test: testprog
 
 tclean:
 	rm -f testprog
+	rm -f debug
+	rm -rf debug.dSYM
 
 ftclean: tclean fclean
 
@@ -63,3 +65,7 @@ speedtest: testprog
 
 leakscheck: testprog
 	leaks --atExit -- ./$< SPEEDMODE
+
+debug: testprog.c $(NAME)
+	$(CC) $(CFLAGS) -g -fsanitize=address $< -L. $(NAME) -o $@
+	./$@ SPEEDMODE
