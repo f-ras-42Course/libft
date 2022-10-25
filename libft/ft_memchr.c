@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 09:59:19 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/24 23:28:07 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/25 13:50:07 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	i = 0;
 	ptr = s;
-	while (ptr[i] != (unsigned char)c && i < n - 1)
+	while (i < n)
+	{
+		if (ptr[i] == (unsigned char)c)
+			return ((void *)s + i);
 		i++;
-	if (ptr[i] == (unsigned char)c)
-		return ((void *)s + i);
-	else
-		return (NULL);
+	}
+	return (NULL);
 }
