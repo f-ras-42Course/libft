@@ -63,6 +63,10 @@ testre: ftclean test
 speedtest: testprog
 	./$< SPEEDMODE
 
+nbtest: testprog
+	./$< NOBONUS $(CANDIDATE)
+
+
 leakscheck: testprog
 	leaks --atExit -- ./$< SPEEDMODE
 
