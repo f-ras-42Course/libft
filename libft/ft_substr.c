@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 02:32:34 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/26 09:48:50 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/26 10:55:25 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,28 @@
 char	*ft_substr(char const *s, unsigned int start, size_t dstlen)
 {
 	size_t		srclen;
-	char		*alloc;
+	char		*ret;
 
 	srclen = ft_strlen(s);
 	if (start >= srclen || *s == 0)
 	{
-		alloc = ft_calloc(1, sizeof(*alloc));
-		if (!alloc)
+		ret = ft_calloc(1, sizeof(*ret));
+		if (!ret)
 			return (NULL);
 	}
 	else if (dstlen > srclen)
 	{
-		alloc = malloc((srclen + 1) * sizeof(*alloc));
-		if (!alloc)
+		ret = malloc((srclen + 1) * sizeof(*ret));
+		if (!ret)
 			return (NULL);
-		ft_strlcpy(alloc, s + start, (srclen + 1));
+		ft_strlcpy(ret, s + start, (srclen + 1));
 	}
 	else
 	{
-		alloc = malloc((dstlen + 1) * sizeof(*alloc));
-		if (!alloc)
+		ret = malloc((dstlen + 1) * sizeof(*ret));
+		if (!ret)
 			return (NULL);
-		ft_strlcpy(alloc, s + start, (dstlen + 1));
+		ft_strlcpy(ret, s + start, (dstlen + 1));
 	}
-	return (alloc);
+	return (ret);
 }
