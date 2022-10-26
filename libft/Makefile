@@ -69,3 +69,10 @@ leakscheck: testprog
 debug: testprog.c $(NAME)
 	$(CC) $(CFLAGS) -g -fsanitize=address $< -L. $(NAME) -o $@
 	./$@ SPEEDMODE
+
+leaksinfo: testprog
+	export MallocStackLogging=1 && \
+	./$< SPEEDMODE && \
+	leaks -atExit -quiet -list -- ./$< SPEEDMODE
+
+alldebugchecks: debug leakscheck
