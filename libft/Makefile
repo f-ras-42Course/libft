@@ -54,7 +54,7 @@ test: testprog
 tclean:
 	rm -f testprog
 	rm -f debug
-	rm -rf debug.dSYM
+	rm -rf *.dSYM
 
 ftclean: tclean fclean
 
