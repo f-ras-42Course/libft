@@ -6,17 +6,11 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 17:31:06 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/24 21:52:45 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/26 02:27:54 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	iswhitespace(char c)
-{
-	return (c == '\t' || c == '\n' || c == '\v'
-		|| c == '\f' || c == '\r' || c == ' ');
-}
 
 int	ft_atoi(const char *str)
 {
@@ -27,7 +21,8 @@ int	ft_atoi(const char *str)
 	i = 0;
 	rtn = 0;
 	sign = 1;
-	while (iswhitespace(str[i]))
+	while (c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r' || c == ' ');
 		i++;
 	if (str[i] == '-')
 	{
