@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 12:52:49 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/28 15:47:26 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/28 18:16:04 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ static size_t	strlenskipc(char const *s, char c)
 {
 	size_t	i;
 
+	i = 0;
 	while (*s)
 	{
-		*s++;
+		s++;
 		if (*s != c)
 			i++;
 	}
