@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 02:32:34 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/28 22:14:34 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/30 20:36:12 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	srclen = ft_strlen(s);
 	if (start >= srclen || *s == 0)
-	{
-		ret = ft_calloc(1, sizeof(*ret));
-		if (!ret)
-			return (NULL);
-	}
-	else if (len > srclen)
+		return (ft_calloc(1, sizeof(*ret)));
+	if (len > srclen)
 	{
 		ret = malloc((srclen + 1) * sizeof(*ret));
 		if (!ret)
