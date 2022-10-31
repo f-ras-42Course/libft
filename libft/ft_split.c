@@ -6,70 +6,65 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 12:52:49 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/30 21:01:07 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/31 16:49:13 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	countc(char const *s, char c)
+static size_t	count_str(char const *s, char c);
+static void		splits_it(char **ret, char const *s, char c, size_t arrlen);
+
+char	**ft_split(char const *s, char c)
+{
+	char	**ret;
+	size_t	arrlen;
+
+	arrlen = count_str(s, c);
+	ret = malloc(sizeof(ret) * (arrlen + 1));
+	if (!ret)
+		return (NULL);
+	splits_it(ret, s, c, arrlen);
+	return (ret);
+}
+
+static size_t	count_str(char const *s, char c)
 {
 	size_t	i;
 
 	i = 0;
+	if (*s && *s != c)
+		i++;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s != c && *(s - 1) == c && *(s - 1))
 			i++;
 		s++;
 	}
 	return (i);
 }
 
-	// static size_t	strlenskipc(char const *s, char c)
-	// {
-	// 	size_t	i;
-
-	// 	i = 0;
-	// 	while (*s)
-	// 	{
-	// 		s++;
-	// 		if (*s != c)
-	// 			i++;
-	// 	}
-	// 	return (i);
-	// }
-
-
-char    **ft_split(char const *s, char c)
+static void	splits_it(char **ret, char const *s, char c, size_t arrlen)
 {
-    char	**ret;
-    size_t	i;
-    size_t	start;
+	size_t	i;
+	size_t	start;
 	size_t	len;
-	size_t	srclen;
-    size_t	arrsize;
 
-    i = 0;
-    start = 0;
+	i = 0;
+	start = 0;
 	len = 0;
-    arrsize = (countc(s, c) + 1);
-	srclen = (ft_strlen(s) + 1);
-	if (srclen == arrsize)
-		return (ft_calloc(1, sizeof(ret)));
-    ret = malloc(sizeof(ret) * arrsize);
-	if (!ret)
-		return (NULL);
-    while (i < arrsize)
-    {
+	while (i < arrlen)
+	{
+		while (s[start] == c && s[start])
+			start++;
+		while (s[len] == c && s[len])
+			len++;
 		while (s[len] != c && s[len])
 			len++;
-        ret[i] = ft_substr(s, start, len - start);
-        while (s[start] != c && s[start])
-            start++;
-		start++;
-		len++;
-        i++;
-    }
-    return (ret);
+		ret[i] = ft_substr(s, start, len - start);
+		while (s[start] != c && s[start])
+			start++;
+		i++;
+	}
+	ret[i] = NULL;
 }
