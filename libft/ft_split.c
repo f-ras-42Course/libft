@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 12:52:49 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/31 17:25:32 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/31 22:48:42 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,18 @@ static void	splits_it(char **ret, char const *s, char c, size_t arrlen)
 		while (s[len] != c && s[len])
 			len++;
 		ret[i] = ft_substr(s, start, len - start);
-		// if (!ret[i])
-		// {
-		// 	while(i)
-		// 		free(ret[i--]);
-		// 	free (ret)
-		// 	return (NULL);
-		// }
 		while (s[start] != c && s[start])
 			start++;
 		i++;
 	}
 	ret[i] = NULL;
 }
+
+		// ret[i] = ft_substr(s, start, len - start);
+		// if (!ret[i])
+		// {
+		// 	while (i)
+		// 		free(ret[i--]);
+		// 	free(ret);
+		// 	return (NULL);
+		// }
