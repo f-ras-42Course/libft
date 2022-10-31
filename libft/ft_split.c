@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 12:52:49 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/31 16:49:13 by fras          ########   odam.nl         */
+/*   Updated: 2022/10/31 17:25:32 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,13 @@ static size_t	count_str(char const *s, char c)
 
 	i = 0;
 	if (*s && *s != c)
+	{
 		i++;
+		s++;
+	}
 	while (*s)
 	{
-		if (*s != c && *(s - 1) == c && *(s - 1))
+		if (*s != c && *(s - 1) == c)
 			i++;
 		s++;
 	}
@@ -62,6 +65,13 @@ static void	splits_it(char **ret, char const *s, char c, size_t arrlen)
 		while (s[len] != c && s[len])
 			len++;
 		ret[i] = ft_substr(s, start, len - start);
+		// if (!ret[i])
+		// {
+		// 	while(i)
+		// 		free(ret[i--]);
+		// 	free (ret)
+		// 	return (NULL);
+		// }
 		while (s[start] != c && s[start])
 			start++;
 		i++;
