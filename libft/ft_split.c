@@ -6,15 +6,15 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 12:52:49 by fras          #+#    #+#                 */
-/*   Updated: 2022/11/01 15:11:23 by fras          ########   odam.nl         */
+/*   Updated: 2022/11/03 20:41:54 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static size_t	count_str(char const *s, char c);
-static void		splits_it(char **ret, char const *s, char c, size_t arrlen);
-static void		freeallocs(char **ret, size_t i);
+static char		**splits_it(char **ret, char const *s, char c, size_t arrlen);
+static char		**freeallocs(char **ret, size_t i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -22,13 +22,10 @@ char	**ft_split(char const *s, char c)
 	size_t	arrlen;
 
 	arrlen = count_str(s, c);
-	ret = malloc(sizeof(ret) * (arrlen + 1));
+	ret = malloc(sizeof(char *) * (arrlen + 1));
 	if (!ret)
 		return (NULL);
-	splits_it(ret, s, c, arrlen);
-	if (!ret)
-		return (NULL);
-	ret[arrlen] = NULL;
+	ret = splits_it(ret, s, c, arrlen);
 	return (ret);
 }
 
@@ -51,7 +48,7 @@ static size_t	count_str(char const *s, char c)
 	return (i);
 }
 
-static void	splits_it(char **ret, char const *s, char c, size_t arrlen)
+static char	**splits_it(char **ret, char const *s, char c, size_t arrlen)
 {
 	size_t	i;
 	size_t	start;
@@ -70,20 +67,19 @@ static void	splits_it(char **ret, char const *s, char c, size_t arrlen)
 			len++;
 		ret[i] = ft_substr(s, start, len - start);
 		if (!ret[i])
-		{
-			freeallocs(ret, i);
-			return ;
-		}
+			return (freeallocs(ret, i));
 		while (s[start] != c && s[start])
 			start++;
 		i++;
 	}
+	ret[i] = NULL;
+	return (ret);
 }
 
-static void	freeallocs(char **ret, size_t i)
+static char	**freeallocs(char **ret, size_t i)
 {
-	while (i)
-		free(ret[i--]);
+	while (i--)
+		free(ret[i]);
 	free(ret);
-	ret = NULL;
+	return (NULL);
 }
