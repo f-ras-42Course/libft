@@ -14,7 +14,7 @@
 NAME = libft.a
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-SOURCES = $(shell find . -type f -name "ft_*.c")
+SOURCES = $(shell find . -type f -name "ft_*.c" ! -name "ft_lst*.c")
 # OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:%.c=%.o))
 OBJECTS = $(SOURCES:%.c=%.o)
 BUILDDIR = obj
@@ -76,3 +76,34 @@ leaksinfo: testprog
 	leaks -atExit -quiet -list -- ./$< SPEEDMODE
 
 alldebugchecks: debug leakscheck
+
+
+# # BONUSSRCS = $(shell find . -type f -name "ft_lst*.c")
+# # OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:%.c=%.o))
+# OBJECTS = $(SOURCES:%.c=%.o)
+# BUILDDIR = obj
+# SRCDIR = .
+
+# # .PHONY: all clean fclean bonus
+
+# $(NAME): $(OBJECTS)
+# 	ar -rcs $(NAME) $(OBJECTS)
+
+# # directories:
+# # 	@mkdir -p $(BUILDDIR)
+
+# # $(OBJECTS): $(SOURCES)
+# # 	$(CC) $(CFLAGS) -c $< -o $@ 
+
+# all: $(NAME)
+
+# clean:
+# 	rm -f *.o
+# 	rm -rf obj
+
+# fclean: clean
+# 	rm -f $(NAME)
+
+# re: fclean all
+
+# # bonus: $(OBJECTS)
