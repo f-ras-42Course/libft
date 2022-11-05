@@ -22,6 +22,8 @@ B_OBJECTS = $(B_SOURCES:%.c=%.o)
 BUILDDIR = obj
 SRCDIR = .
 
+.PHONY: all clean fclean re bonus
+
 $(NAME): $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)
 
@@ -31,7 +33,7 @@ $(NAME): $(OBJECTS)
 # $(OBJECTS): $(SOURCES)
 # 	$(CC) $(CFLAGS) -c $< -o $@ 
 
-all: $(NAME)
+all: $(NAME) bonus
 
 clean:
 	rm -f *.o
@@ -50,7 +52,7 @@ bonus: $(B_OBJECTS) $(NAME)
 #       TEST PROG     |
 # +-------------------+
 
-testprog: testprog.c $(NAME)
+testprog: testprog.c all
 	$(CC) $(CFLAGS) $< -L. $(NAME) -o $@
 
 test: testprog
