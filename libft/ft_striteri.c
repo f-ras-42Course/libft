@@ -6,13 +6,13 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/04 18:18:28 by fras          #+#    #+#                 */
-/*   Updated: 2022/11/04 18:36:04 by fras          ########   odam.nl         */
+/*   Updated: 2022/11/05 14:57:32 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (s[i])
