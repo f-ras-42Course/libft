@@ -15,8 +15,10 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
 SOURCES = $(shell find . -type f -name "ft_*.c" ! -name "ft_lst*.c")
+B_SOURCES = $(shell find . -type f -name "ft_lst*.c")
 # OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:%.c=%.o))
 OBJECTS = $(SOURCES:%.c=%.o)
+B_OBJECTS = $(B_SOURCES:%.c=%.o)
 BUILDDIR = obj
 SRCDIR = .
 
@@ -39,6 +41,9 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+bonus: $(B_OBJECTS) $(NAME)
+	ar -rcs $(NAME) $(B_OBJECTS)
 
 
 # +-------------------+
