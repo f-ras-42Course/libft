@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 01:03:06 by fras          #+#    #+#                 */
-/*   Updated: 2022/11/07 01:23:36 by fras          ########   odam.nl         */
+/*   Updated: 2022/11/07 01:45:38 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	if (!lst)
+		return (NULL);
 	while (lst->next)
 	{
 		if (lst->next)
