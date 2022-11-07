@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 20:55:39 by fras          #+#    #+#                 */
-/*   Updated: 2022/11/07 21:08:15 by fras          ########   odam.nl         */
+/*   Updated: 2022/11/07 21:39:38 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,5 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	{
 		lst = lst->next;
 		(*f)(lst->content);
-		if (!lst->next)
-			break ;
 	}
 }
