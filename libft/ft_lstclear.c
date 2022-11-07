@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 02:08:17 by fras          #+#    #+#                 */
-/*   Updated: 2022/11/07 03:10:43 by fras          ########   odam.nl         */
+/*   Updated: 2022/11/07 03:20:13 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,22 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list *oldlst;
+	t_list *prevnode;
 
-	oldlst = *lst;
+	if(!*lst)
+		return ;
+	prevnode = *lst;
 	(*del)((*lst)->content);
 	while ((*lst)->next)
 	{
 		*lst = (*lst)->next;
 		(*del)((*lst)->content);
-		free (oldlst);
-		oldlst = NULL;
-		oldlst = *lst;
+		free (prevnode);
+		prevnode = NULL;
+		prevnode = *lst;
 		if (!(*lst)->next)
 			break ;
 	}
 	free (*lst);
 	*lst = NULL;
 }
-
-
-// {
-// 	ft_lstdelone(*lst, del);
-// 	while ((*lst)->next)
-// 	{
-// 		*lst = (*lst)->next;
-// 		ft_lstdelone(*lst, del);
-// 		if (!(*lst)->next)
-// 			break ;
-// 	}
-// 	*lst = NULL;
-// }
