@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 02:08:17 by fras          #+#    #+#                 */
-/*   Updated: 2022/11/07 03:20:13 by fras          ########   odam.nl         */
+/*   Updated: 2022/11/07 20:53:03 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list *prevnode;
+	t_list	*prevnode;
 
-	if(!*lst)
+	if (!*lst)
 		return ;
 	prevnode = *lst;
 	(*del)((*lst)->content);
