@@ -15,23 +15,14 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
 SOURCES = $(shell find . -type f -name "ft_*.c" ! -name "ft_lst*.c")
-B_SOURCES = $(shell find . -type f -name "ft_lst*.c")
-# OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:%.c=%.o))
+BONUS_SOURCES = $(shell find . -type f -name "ft_lst*.c")
 OBJECTS = $(SOURCES:%.c=%.o)
-B_OBJECTS = $(B_SOURCES:%.c=%.o)
-BUILDDIR = obj
-SRCDIR = .
+BONUS_OBJECTS = $(BONUS_SOURCES:%.c=%.o)
 
 .PHONY: all clean fclean re bonus
 
 $(NAME): $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)
-
-# directories:
-# 	@mkdir -p $(BUILDDIR)
-
-# $(OBJECTS): $(SOURCES)
-# 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 all: $(NAME) bonus
 
@@ -44,9 +35,8 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(B_OBJECTS) $(NAME)
-	ar -rcs $(NAME) $(B_OBJECTS)
-
+bonus: $(BONUS_OBJECTS) $(NAME)
+	ar -rcs $(NAME) $(BONUS_OBJECTS)
 
 # +-------------------+
 #       TEST PROG     |
@@ -84,33 +74,18 @@ leaksinfo: testprog
 
 alldebugchecks: debug leakscheck
 
+#/////////////////////////////////////////////////////////////////////////////
 
-# # BONUSSRCS = $(shell find . -type f -name "ft_lst*.c")
+# BONUS_SOURCES = //---
 # # OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:%.c=%.o))
-# OBJECTS = $(SOURCES:%.c=%.o)
-# BUILDDIR = obj
-# SRCDIR = .
-
-# # .PHONY: all clean fclean bonus
-
-# $(NAME): $(OBJECTS)
-# 	ar -rcs $(NAME) $(OBJECTS)
-
+# OBJECTS = //---
+# BONUS_OBJECTS = //---
+# # BUILDDIR = obj
+# # SRCDIR = .
+# .PHONY: //---
+# $(NAME): //---
 # # directories:
 # # 	@mkdir -p $(BUILDDIR)
-
 # # $(OBJECTS): $(SOURCES)
 # # 	$(CC) $(CFLAGS) -c $< -o $@ 
-
-# all: $(NAME)
-
-# clean:
-# 	rm -f *.o
-# 	rm -rf obj
-
-# fclean: clean
-# 	rm -f $(NAME)
-
-# re: fclean all
-
-# # bonus: $(OBJECTS)
+# all: //----
