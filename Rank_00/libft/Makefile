@@ -89,3 +89,13 @@ alldebugchecks: debug leakscheck
 # # $(OBJECTS): $(SOURCES)
 # # 	$(CC) $(CFLAGS) -c $< -o $@ 
 # all: //----
+
+# - To make sure it doesn't relink (example):
+# ifdef WITH_BONUS
+# REG_OBJS = $(OBJS) $(OBJS_BONUS)
+# else
+# REG_OBJS = $(OBJS)
+# endif
+#--&&-
+# bonus: 			
+#	@make WITH_BONUS=1 all
