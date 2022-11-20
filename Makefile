@@ -28,7 +28,6 @@ all: $(NAME) bonus
 
 clean:
 	rm -f *.o
-	rm -rf obj
 
 fclean: clean
 	rm -f $(NAME)
@@ -37,42 +36,6 @@ re: fclean all
 
 bonus: $(BONUS_OBJECTS) $(NAME)
 	ar -rcs $(NAME) $(BONUS_OBJECTS)
-
-# +-------------------+
-#       TEST PROG     |
-# +-------------------+
-
-testprog: testprog.c all
-	$(CC) $(CFLAGS) $< -L. $(NAME) -o $@
-
-test: testprog
-	./$< $(CANDIDATE)
-
-tclean:
-	rm -f testprog
-	rm -f debug
-	rm -rf *.dSYM
-
-ftclean: tclean fclean
-
-testre: ftclean test
-
-speedtest: testprog
-	./$< SPEEDMODE
-
-leakscheck: testprog
-	leaks --atExit -- ./$< SPEEDMODE
-
-debug: testprog.c $(NAME)
-	$(CC) $(CFLAGS) -g -fsanitize=address $< -L. $(NAME) -o $@
-	./$@ SPEEDMODE
-
-leaksinfo: testprog
-	export MallocStackLogging=1 && \
-	./$< SPEEDMODE && \
-	leaks -atExit -quiet -list -- ./$< SPEEDMODE
-
-alldebugchecks: debug leakscheck
 
 #/////////////////////////////////////////////////////////////////////////////
 
