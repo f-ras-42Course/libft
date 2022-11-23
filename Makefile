@@ -20,8 +20,7 @@ OBJ_DIR = obj
 SOURCES = $(shell find $(SRC_DIR) -type f -name "ft_*.c" ! -name "ft_lst*.c")
 BONUS_SOURCES = $(shell find $(SRC_DIR) -type f -name "ft_lst*.c")
 OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SOURCES:%.c=%.o))
-# OBJECTS = $(SOURCES:%.c=%.o)
-BONUS_OBJECTS = $(BONUS_SOURCES:%.c=%.o)
+BONUS_OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(BONUS_SOURCES:%.c=%.o))
 
 # No relinking when using bonus target
 ifdef WITH_BONUS
@@ -31,7 +30,7 @@ else
 endif
 # ^
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus directories
 
 $(NAME): directories $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS_SELECTED)
@@ -54,34 +53,3 @@ re: fclean all
 
 bonus: directories $(BONUS_OBJECTS)
 	$(MAKE) $(NAME) WITH_BONUS=1
-
-tempclean:
-	find srcs -type f -name "*.o" -exec rm -f {} \;
-
-
-
-#/////////////////////////////////////////////////////////////////////////////
-
-# BONUS_SOURCES = //---
-# # OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:%.c=%.o))
-# OBJECTS = //---
-# BONUS_OBJECTS = //---
-# # BUILDDIR = obj
-# # SRCDIR = .
-# .PHONY: //---
-# $(NAME): //---
-# # directories:
-# # 	@mkdir -p $(BUILDDIR)
-# # $(OBJECTS): $(SOURCES)
-# # 	$(CC) $(CFLAGS) -c $< -o $@ 
-# all: //----
-
-# - To make sure it doesn't relink (example):
-# ifdef WITH_BONUS
-# REG_OBJS = $(OBJS) $(OBJS_BONUS)
-# else
-# REG_OBJS = $(OBJS)
-# endif
-#--&&-
-# bonus: 			
-#	@make WITH_BONUS=1 all
