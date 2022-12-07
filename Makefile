@@ -45,6 +45,7 @@ directories:
 
 clean:
 	rm -f $(OBJECTS) $(BONUS_OBJECTS)
+	rm -rf obj
 
 fclean: clean
 	rm -f $(NAME)
