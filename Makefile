@@ -32,8 +32,10 @@ endif
 
 .PHONY: all clean fclean re bonus directories
 
-$(NAME): directories $(OBJECTS)
+$(NAME): $(OBJ_DIR) $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS_SELECTED)
+
+$(OBJ_DIR): directories
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -o $@ -c $^
