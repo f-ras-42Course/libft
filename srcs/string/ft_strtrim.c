@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 19:28:31 by fras          #+#    #+#                 */
-/*   Updated: 2022/10/27 01:24:27 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/10 15:18:49 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	s1size = ft_strlen(s1) + 1;
 	while (0 < s1size && ft_strrchr(set, s1[s1size - 1]))
-			s1size--;
+		s1size--;
 	while (i < s1size && ft_strchr(set, s1[i]))
-			i++;
+		i++;
 	s1size -= i - 1;
 	ret = malloc (s1size * sizeof(*s1));
 	if (!ret)
